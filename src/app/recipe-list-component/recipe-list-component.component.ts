@@ -11,7 +11,5 @@ import { SupabaseService } from '../services/supabase.service';
 export class RecipeListComponentComponent implements OnInit {
   constructor(private supabaseService: SupabaseService) {}
 
-  ngOnInit(): void {
-    this.supabaseService.fetchTableData('recipes');
-  }
+  ngOnInit(): void {}
 }

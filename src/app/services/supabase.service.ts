@@ -9,15 +9,20 @@ export class SupabaseService {
   private supabase: SupabaseClient;
 
   constructor() {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.supabase = createClient(
+      environment.supabaseUrl,
+      environment.supabaseKey
+    );
   }
 
-  async fetchTableData(table: string) {
-    const { data, error } = await this.supabase.from(table).select('*');
-    if (error) {
-      console.error('Error fetching data:', error.message);
-    } else {
-      console.log('Data:', data);
-    }
+  id!: number;
+  name!: string;
+  description!: string;
+  ingredients!: string;
+  steps!: string;
+
+  getRecipes() {
+    this.supabase.from('recipes').select('*');
+    // MAKE IT SO I SAVE THE DATA FOR THE CURRENT OBJECT!
   }
 }
