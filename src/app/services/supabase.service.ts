@@ -15,14 +15,13 @@ export class SupabaseService {
     );
   }
 
-  id!: number;
-  name!: string;
-  description!: string;
-  ingredients!: string;
-  steps!: string;
-
-  getRecipes() {
-    this.supabase.from('recipes').select('*');
-    // MAKE IT SO I SAVE THE DATA FOR THE CURRENT OBJECT!
+  async loadRecipes(): Promise<any[]> {
+    const { data, error } = await this.supabase
+    .from('recipes')
+    .select('id, name, description, ingredients, steps');
+    if (error) {
+      throw error;
+    }
+    return data || [];
   }
 }

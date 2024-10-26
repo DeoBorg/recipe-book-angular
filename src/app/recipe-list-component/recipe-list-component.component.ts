@@ -8,8 +8,28 @@ import { SupabaseService } from '../services/supabase.service';
   templateUrl: './recipe-list-component.component.html',
   styleUrl: './recipe-list-component.component.css'
 })
-export class RecipeListComponentComponent implements OnInit {
+export class RecipeListComponentComponent implements OnInit{
+
+  ids: number[] = [];
+  names: string[] = [];
+  descriptions: string[] = [];
+  ingredients: string[] = [];
+  steps: string[] = [];
+
   constructor(private supabaseService: SupabaseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.loadRecipes();
+  }
+
+  async loadRecipes(): Promise<void> {
+    const recipes = await this.supabaseService.loadRecipes();
+    recipes.forEach(recipe=>{
+      this.ids.push(recipe.id);
+      this.names.push(recipe.name);
+      this.descriptions.push(recipe.description);
+      this.ingredients.push(recipe.ingredients);
+      this.steps.push(recipe.steps);
+    });
+  }
 }
