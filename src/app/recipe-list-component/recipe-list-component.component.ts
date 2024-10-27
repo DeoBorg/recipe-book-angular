@@ -10,7 +10,7 @@ import { SupabaseService } from '../services/supabase.service';
 })
 export class RecipeListComponentComponent implements OnInit{
 
-  ids: number[] = [];
+  ids: any[] = [];
   names: string[] = [];
   descriptions: string[] = [];
   ingredients: string[] = [];

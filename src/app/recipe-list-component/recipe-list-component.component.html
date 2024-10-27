@@ -18,41 +18,37 @@
 </header>
 
 <body>
-  <p>{{names[0]}} {{names[1]}} </p> <!-- << this is a test -->
   <div class="container mt-4">
     <h1 class="text-center">Recipes</h1>
     <div class="row">
 
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card" style="width: 100%">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Lorem Ipsum Dolor</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec purus nec nunc.
-            </p>
-            <a href="#" class="btn btn-primary">View Recipe</a>
-            <a href="#" class="btn btn-danger mx-3">Edit Recipe</a>
+      @for(id of ids; track id.ids){
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card" style="width: 100%">
+            <img src="..." class="card-img-top" alt="Add Functionality for image display" />
+            <div class="card-body">
+              <h5 class="card-title">{{names[id-1]}}</h5>
+              <p class="card-text">
+                {{descriptions[id-1]}}
+              </p>
+              <a href="#" class="btn btn-primary">View Recipe</a>
+              <a href="#" class="btn btn-danger mx-3">Edit Recipe</a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card" style="width: 100%">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Lorem Ipsum Dolor</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec purus nec nunc.
-            </p>
-            <a href="#" class="btn btn-primary">View Recipe</a>
-            <a href="#" class="btn btn-danger mx-3">Edit Recipe</a>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </body>
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-body-secondary">Recipe Book Application</p>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a class="nav-link px-2 text-body-secondary">Deo Borg</a></li>
+      <li class="nav-item"><a href="https://github.com/DeoBorg/recipe-book-angular" class="nav-link px-2 text-body-secondary">Github page</a></li>
+    </ul>
+  </footer>
+</div>
 
